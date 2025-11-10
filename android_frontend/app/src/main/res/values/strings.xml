@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Recipe Collection Manager</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="search_hint">Search by ingredients (e.g., chicken, tomato)</string>
+    <string name="favorites_empty">No favorites yet</string>
+    <string name="recipes">Recipes</string>
+    <string name="servings">Servings</string>
+    <string name="time">Time</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="mark_favorite">Add to Favorites</string>
+    <string name="unmark_favorite">Remove Favorite</string>
+</resources>

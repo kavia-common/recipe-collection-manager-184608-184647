@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.OceanProfessional" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ocean_primary</item>
+        <item name="colorPrimaryVariant">@color/ocean_primary</item>
+        <item name="colorSecondary">@color/ocean_secondary</item>
+        <item name="android:statusBarColor">@color/ocean_primary</item>
+        <item name="android:navigationBarColor">@color/ocean_surface</item>
+        <item name="android:windowBackground">@color/ocean_background</item>
+        <item name="android:textColor">@color/ocean_text</item>
+        <item name="materialCardViewStyle">@style/OceanCard</item>
+        <item name="bottomNavigationStyle">@style/OceanBottomNav</item>
+    </style>
+
+    <style name="OceanCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/ocean_surface</item>
+        <item name="cardElevation">3dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardCornerRadius">12dp</item>
+    </style>
+
+    <style name="OceanBottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemRippleColor">@color/ocean_primary</item>
+        <item name="android:background">@color/ocean_surface</item>
+        <item name="elevation">8dp</item>
+    </style>
+</resources>
