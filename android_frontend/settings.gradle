@@ -1,7 +1,14 @@
-rootProject.name = "example-android-app"
-// Proxy to Declarative Gradle: include the DCL settings file to satisfy tools looking for settings.gradle
-// This keeps the existing settings.gradle.dcl authoritative.
-if (file("settings.gradle.dcl").exists()) {
-    // No-op: presence of this settings.gradle is enough for Gradle tooling to detect a build here.
-    // The actual build uses settings.gradle.dcl via the declarative plugin ecosystem.
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
 }
+
+rootProject.name = "example-android-app"
+
+// Explicitly include modules so :app tasks can be resolved by classic task selectors.
+include(":app")
+include(":list")
+include(":utilities")

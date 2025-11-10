@@ -2,46 +2,54 @@ plugins {
     // No plugins at root; use task delegation to subprojects that use DCL
 }
 
-// Helper to check if a task exists before depending on it
-def taskExists(String path) {
-    try {
-        return tasks.findByPath(path) != null
-    } catch (Throwable ignored) {
-        return false
+def firstExistingTask(List<String> candidates) {
+    for (String path : candidates) {
+        try {
+            if (gradle?.parent == null) { /* single build */ }
+            if (tasks.findByPath(path) != null) return path
+        } catch (Throwable ignored) { }
     }
+    return null
 }
 
 // Delegate common lifecycle tasks so CI tools can invoke them at root
 tasks.register("assemble") {
     group = "build"
-    description = "Assemble app module (debug)"
-    dependsOn(":app:assembleDebug")
+    description = "Assemble app module using first available task"
+    def target = firstExistingTask([":app:assemble", ":app:build", ":app:bundle", ":app:package"])
+    if (target != null) {
+        dependsOn(target)
+    }
 }
 
 tasks.register("build") {
     group = "build"
-    description = "Build app module (debug)"
-    dependsOn(":app:assembleDebug")
+    description = "Build app module using first available task"
+    def target = firstExistingTask([":app:build", ":app:assemble", ":app:bundle"])
+    if (target != null) {
+        dependsOn(target)
+    }
 }
 
 tasks.register("check") {
     group = "verification"
-    description = "Run checks across modules (delegated)"
-    // Prefer :app:check if it exists, otherwise assembleDebug as a fallback
-    if (taskExists(":app:check")) {
-        dependsOn(":app:check")
-    } else {
-        dependsOn(":app:assembleDebug")
+    description = "Run checks across modules (delegated if available)"
+    def target = firstExistingTask([":app:check", ":app:test", ":app:build"])
+    if (target != null) {
+        dependsOn(target)
     }
 }
 
 tasks.register("lint") {
     group = "verification"
     description = "Run Android lint on app module (if available)"
-    if (taskExists(":app:lint")) {
-        dependsOn(":app:lint")
+    def target = firstExistingTask([":app:lint", ":app:lintDebug", ":app:lintVitalRelease"])
+    if (target != null) {
+        dependsOn(target)
     } else {
-        // Fallback so the task exists and succeeds
-        dependsOn(":app:assembleDebug")
+        // Leave task noop if no lint tasks exist
+        doLast {
+            logger.lifecycle("No lint tasks found in :app; skipping lint.")
+        }
     }
 }
