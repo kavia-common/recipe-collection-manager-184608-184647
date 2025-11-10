@@ -7,6 +7,7 @@ import org.example.app.data.local.FavoriteRecipe
 import org.example.app.data.local.FavoriteStore
 
 /**
+ * PUBLIC_INTERFACE
  * ViewModel for Favorites screen backed by FavoriteStore.
  */
 class FavoritesViewModel(app: Application) : AndroidViewModel(app) {

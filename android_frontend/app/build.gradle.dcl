@@ -11,8 +11,6 @@ androidApplication {
         implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
         implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
         implementation("androidx.navigation:navigation-ui-ktx:2.8.3")
-        implementation("androidx.room:room-runtime:2.6.1")
-        implementation("androidx.room:room-ktx:2.6.1")
         implementation("com.squareup.picasso:picasso:2.8")
         implementation(project(":utilities"))
     }

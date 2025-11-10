@@ -8,6 +8,9 @@ import androidx.lifecycle.MutableLiveData
  * PUBLIC_INTERFACE
  * FavoriteStore is a lightweight in-memory persistence with SharedPreferences
  * backing for simple favorites storage without Room/annotation processing.
+ * PUBLIC_INTERFACE
+ * This class exposes getAll(), isFavorite(), add(), removeById(), and getInstance()
+ * to manage favorite recipes across the app lifecycle.
  */
 class FavoriteStore private constructor(context: Context) {
 

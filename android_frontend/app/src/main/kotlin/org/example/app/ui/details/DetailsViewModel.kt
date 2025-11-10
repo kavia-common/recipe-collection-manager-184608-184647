@@ -12,6 +12,7 @@ import org.example.app.data.repository.RecipeRepository
 import org.example.app.domain.model.Recipe
 
 /**
+ * PUBLIC_INTERFACE
  * ViewModel for the Details screen handling current recipe and favorite toggle.
  */
 class DetailsViewModel(app: Application) : AndroidViewModel(app) {

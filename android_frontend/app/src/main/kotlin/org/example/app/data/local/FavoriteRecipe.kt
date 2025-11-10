@@ -1,14 +1,12 @@
 package org.example.app.data.local
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
 /**
- * Local Room entity to persist favorite recipe IDs.
+ * PUBLIC_INTERFACE
+ * Lightweight data class representing a favorited recipe.
+ * This no longer uses Room annotations; storage is handled by FavoriteStore.
  */
-@Entity(tableName = "favorite_recipes")
 data class FavoriteRecipe(
-    @PrimaryKey val id: String,
+    val id: String,
     val title: String,
     val imageUrl: String?
 )
