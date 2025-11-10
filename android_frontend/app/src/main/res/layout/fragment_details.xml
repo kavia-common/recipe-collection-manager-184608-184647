@@ -36,7 +36,7 @@
                     android:textColor="@color/ocean_text"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Recipe Title"/>
+                    android:text="@string/recipes"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

@@ -36,7 +36,7 @@
             android:layout_marginTop="4dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/unmark_favorite"
-            app:tint="@color/ocean_error"
+            android:tint="@color/ocean_error"
             android:src="@android:drawable/ic_menu_delete"/>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
